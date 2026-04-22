@@ -1,0 +1,26 @@
+students = {}
+
+while True:
+    print("\n1. Add Student  2. Search  3. Averages  4. Quit")
+    choice = input("Choose: ")
+
+    if choice == "1":
+        name = input("Name: ")
+        scores = input("Enter scores separated by spaces: ").split()
+        students[name] = [float(s) for s in scores]
+        print("Added!")
+
+    elif choice == "2":
+        name = input("Search name: ")
+        if name in students:
+            print(f"Your Scores is: {students[name]}")
+        else:
+            print("Sorry you not found.")
+
+    elif choice == "3":
+        for name, scores in students.items():
+            avg = sum(scores) / len(scores)
+            print(f"Hi {name}: your average is {avg:.2f}")
+
+    elif choice == "4":
+        break
